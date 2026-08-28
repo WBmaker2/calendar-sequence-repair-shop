@@ -44,9 +44,20 @@
   - [ ] 실제 태블릿 기기 가독성 확인
 - 장식 일러스트는 이미지 생성 모델 대신 직접 제작한 벡터 자산으로 대체했다 (`docs/image-rights-ledger.md` 차이 기록).
 
-## 5. 출시 전 남은 단계 (별도 승인 필요)
+## 5. 출시 기록 (2026-08-28 사용자 출시 승인 후 수행)
 
-1. 원격 저장소 생성·push (WBmaker2/calendar-sequence-repair-shop, main 브랜치)
-2. GitHub Actions 성공 후 https://wbmaker2.github.io/calendar-sequence-repair-shop/ 공개 확인
-3. HVC 관리자 등록과 정적 갤러리 동기화
-4. 위 §4의 사람 검수 완료
+1. [x] 원격 저장소 생성·push — https://github.com/WBmaker2/calendar-sequence-repair-shop (main 브랜치)
+2. [x] GitHub Pages 활성화 (build_type=workflow) — Deploy to GitHub Actions 워크플로 성공, CI 워크플로도 성공
+3. [x] 공개 앱 확인 (https://wbmaker2.github.io/calendar-sequence-repair-shop/):
+   - 제목 "달력 순서 복원소" 확인, favicon 200
+   - 콘솔 오류 0건, 404 등 실패 요청 0건
+   - 실제 학습 흐름(빈칸 복원 → 월요일 선택 → 어제·내일 → 일주일 뒤 → 순서 배열 → 월 경계 → 기록) 라이브에서 완주
+   - 375px 화면 가로 넘침 없음
+4. [ ] HVC 관리자 등록과 정적 갤러리 동기화 (공개 확인 완료 — 별도 단계로 수행)
+5. [ ] 사람 검수(교사 승인) 완료 — §4 참조
+
+## 6. 확인 링크
+
+- 배포 앱: https://wbmaker2.github.io/calendar-sequence-repair-shop/
+- 저장소: https://github.com/WBmaker2/calendar-sequence-repair-shop
+- 확인 갤러리: https://www.vibehong.shop/ (HVC 등록 후 노출 예정)
