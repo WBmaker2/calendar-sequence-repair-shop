@@ -1,4 +1,5 @@
 import ActionButton from "../../components/ActionButton";
+import paperCalendar from "../../assets/generated/friendly-paper-calendar.svg";
 
 interface EntranceScreenProps {
   readonly onStart: () => void;
@@ -8,6 +9,14 @@ export default function EntranceScreen({ onStart }: EntranceScreenProps) {
   return (
     <section className="entrance" aria-labelledby="entrance-heading">
       <div className="entrance-hero">
+        <img
+          src={paperCalendar}
+          alt=""
+          aria-hidden="true"
+          className="entrance-illustration"
+          width="320"
+          height="200"
+        />
         <h2 id="entrance-heading">빠진 날짜를 찾아 달력을 복원해요!</h2>
         <p className="entrance-goal">
           2026년 9월 연습 달력에서 빠진 날짜와 요일을 찾고, 어제·오늘·내일과 일주일 뒤,

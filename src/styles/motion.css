@@ -1,0 +1,74 @@
+/* 모션 시스템: 필수 행동 맥박과 축소 모션 대체 */
+
+.gi-pulse {
+  animation: gi-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes gi-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(47, 125, 93, 0.4);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 10px rgba(47, 125, 93, 0);
+  }
+}
+
+.gi-pulse::after {
+  content: "필수";
+  display: none;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-accent-deep);
+}
+
+/* 자동 감지: 사용자가 움직임 줄이기를 요청한 경우 */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .gi-pulse {
+    animation: none !important;
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  .gi-pulse::after {
+    content: "필수";
+    display: inline-block;
+    padding: 0 var(--space-2);
+    border-radius: 999px;
+    background: var(--color-highlight);
+  }
+}
+
+/* 수동 대체: 화면 도구의 애니메이션 줄이기 토글 */
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+.reduce-motion .gi-pulse {
+  animation: none !important;
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.reduce-motion .gi-pulse::after {
+  display: inline-block;
+  padding: 0 var(--space-2);
+  border-radius: 999px;
+  background: var(--color-highlight);
+}

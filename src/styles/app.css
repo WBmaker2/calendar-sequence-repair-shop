@@ -481,3 +481,10 @@ body {
   flex-wrap: wrap;
   gap: var(--space-2);
 }
+
+.entrance-illustration {
+  width: min(100%, 20rem);
+  height: auto;
+  border-radius: var(--radius-card);
+  justify-self: center;
+}

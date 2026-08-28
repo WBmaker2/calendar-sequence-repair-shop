@@ -10,6 +10,7 @@ import AccessibilityToolbar from "../accessibility/AccessibilityToolbar";
 import ErrorBoundary from "./ErrorBoundary";
 import "../styles/tokens.css";
 import "../styles/app.css";
+import "../styles/motion.css";
 
 const FLOW_ORDER: readonly SessionStep[] = [
   "WEEKDAY_STRIP",
