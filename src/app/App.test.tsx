@@ -31,7 +31,8 @@ describe("App 셸", () => {
     await user.click(openButton);
     const dialog = screen.getByRole("dialog", { name: "업데이트 내역" });
     expect(dialog).toBeInTheDocument();
-    expect(screen.getByText(/2026-08-28/)).toBeInTheDocument();
+    expect(screen.getAllByText(/2026-08-28/).length).toBeGreaterThanOrEqual(2);
+    expect(screen.getByText(/학습 앱 구현 완료/)).toBeInTheDocument();
     expect(screen.getByText(/구현 계획 확정/)).toBeInTheDocument();
     await user.keyboard("{Escape}");
     await waitFor(() => {
