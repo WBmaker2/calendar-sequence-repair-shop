@@ -2,23 +2,13 @@ import { useEffect, useReducer, useRef } from "react";
 import { initialSessionState, sessionReducer } from "./sessionReducer";
 import type { SessionStep } from "../domain/types";
 import EntranceScreen from "../features/calendar-repair/EntranceScreen";
+import CalendarWorkbench from "../features/calendar-repair/CalendarWorkbench";
 import ProgressSteps from "../components/ProgressSteps";
 import UpdateHistoryButton from "../components/UpdateHistoryButton";
 import AccessibilityToolbar from "../accessibility/AccessibilityToolbar";
 import ErrorBoundary from "./ErrorBoundary";
 import "../styles/tokens.css";
 import "../styles/app.css";
-
-const STEP_LABELS: Record<SessionStep, string> = {
-  INTRO: "입구",
-  WEEKDAY_STRIP: "요일 띠 확인",
-  PREDICT: "빈 칸 예측",
-  SELECT: "달력 칸 선택",
-  RELATE: "관계 카드",
-  WEEK: "일주일 관계",
-  BOUNDARY: "월 경계",
-  REPORT: "달력 기록",
-};
 
 const FLOW_ORDER: readonly SessionStep[] = [
   "WEEKDAY_STRIP",
@@ -58,12 +48,7 @@ export default function App() {
         </section>
       );
     }
-    return (
-      <section className="step-placeholder" aria-labelledby="step-placeholder-heading">
-        <h2 id="step-placeholder-heading">{STEP_LABELS[step]}</h2>
-        <p>복원 활동 화면이에요. 새로고침하면 응답이 사라져요.</p>
-      </section>
-    );
+    return <CalendarWorkbench state={state} dispatch={dispatch} />;
   };
 
   return (
