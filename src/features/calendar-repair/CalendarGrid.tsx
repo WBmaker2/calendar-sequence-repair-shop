@@ -92,11 +92,15 @@ export default function CalendarGrid({
         ))}
       </div>
 
-      {cells.map((entry) => {
-        const { cell, hidden, row, column } = entry;
-        const isSelected = selectedDates.includes(cell.date);
-        const isAnchor = anchorDate === cell.date;
-        const placement = cellPlacement(row, column);
+      {Array.from({ length: maxRow + 1 }, (_, rowIndex) => (
+        <div key={rowIndex} role="row" className="calendar-row">
+          {cells
+            .filter((entry) => entry.row === rowIndex)
+            .map((entry) => {
+              const { cell, hidden, row, column } = entry;
+              const isSelected = selectedDates.includes(cell.date);
+              const isAnchor = anchorDate === cell.date;
+              const placement = cellPlacement(row, column);
 
         if (hidden) {
           return (
@@ -155,7 +159,9 @@ export default function CalendarGrid({
             </button>
           </div>
         );
-      })}
+            })}
+        </div>
+      ))}
     </div>
   );
 }
