@@ -1,0 +1,43 @@
+:root {
+  --color-paper: #fff7ea;
+  --color-paper-raised: #fffdf7;
+  --color-paper-deep: #fdf0d9;
+  --color-ink: #2b2118;
+  --color-ink-soft: #5c4f42;
+  --color-accent: #2f7d5d;
+  --color-accent-deep: #226047;
+  --color-accent-soft: #d8ecdf;
+  --color-highlight: #ffd66b;
+  --color-highlight-deep: #f0b429;
+  --color-danger: #b3402f;
+  --color-danger-soft: #f7ddd6;
+  --color-focus: #1d4ed8;
+  --color-line: #e3d5bd;
+  --color-cell-blank: #f6ecd9;
+
+  --radius-card: 18px;
+  --radius-button: 14px;
+  --radius-cell: 12px;
+  --shadow-card: 0 2px 0 rgba(43, 33, 24, 0.1);
+  --shadow-raised: 0 3px 0 rgba(43, 33, 24, 0.14);
+
+  --font-body:
+    "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui,
+    -apple-system, sans-serif;
+
+  --text-sm: 0.95rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-hero: clamp(1.75rem, 3.5vw, 2.25rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+
+  --touch-target: 44px;
+  --focus-width: 3px;
+}
