@@ -3,6 +3,7 @@ import { initialSessionState, sessionReducer } from "./sessionReducer";
 import type { SessionStep } from "../domain/types";
 import EntranceScreen from "../features/calendar-repair/EntranceScreen";
 import CalendarWorkbench from "../features/calendar-repair/CalendarWorkbench";
+import LearningReport from "../features/report/LearningReport";
 import ProgressSteps from "../components/ProgressSteps";
 import UpdateHistoryButton from "../components/UpdateHistoryButton";
 import AccessibilityToolbar from "../accessibility/AccessibilityToolbar";
@@ -41,12 +42,7 @@ export default function App() {
       return <EntranceScreen onStart={() => dispatch({ type: "START_SESSION" })} />;
     }
     if (step === "REPORT") {
-      return (
-        <section className="step-placeholder" aria-labelledby="report-placeholder-heading">
-          <h2 id="report-placeholder-heading">달력 기록</h2>
-          <p>복원한 달력 기록을 정리하는 화면이에요. 새로고침하면 응답이 사라져요.</p>
-        </section>
-      );
+      return <LearningReport state={state} dispatch={dispatch} />;
     }
     return <CalendarWorkbench state={state} dispatch={dispatch} />;
   };

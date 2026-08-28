@@ -162,11 +162,18 @@ function acceptanceEvidence(mission: CalendarMission, answer: CalendarAnswer): s
       return lines;
     }
     case "seven-days-after": {
-      const lines = [
+      if (answer.selectedDates.length >= 2) {
+        const first = answer.selectedDates[0];
+        const last = answer.selectedDates[answer.selectedDates.length - 1];
+        return [
+          `${formatKoreanDate(first)}과 ${formatKoreanDate(last)}은 7일 차이예요.`,
+          "7일 차이가 나면 같은 요일이에요.",
+        ];
+      }
+      return [
         `${anchorText}에서 7일 뒤는 ${formatKoreanDate(answer.selectedDates[0])}이에요.`,
         "7일 뒤에는 같은 요일이 다시 돌아와요.",
       ];
-      return lines;
     }
     case "chronological-order": {
       const sequence = answer.selectedDates.map(formatKoreanDate).join(" → ");

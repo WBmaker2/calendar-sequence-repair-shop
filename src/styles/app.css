@@ -402,3 +402,82 @@ body {
     width: 100%;
   }
 }
+
+/* 결과 기록 화면 */
+
+.report {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-paper-raised);
+  border: 2px solid var(--color-line);
+  border-radius: var(--radius-card);
+}
+
+.report-header h2 {
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-xl);
+}
+
+.report-note {
+  margin: 0;
+  color: var(--color-ink-soft);
+}
+
+.report-records {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.report-record {
+  padding: var(--space-4);
+  border: 2px solid var(--color-line);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+}
+
+.report-record h3 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-lg);
+}
+
+.report-fields {
+  margin: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.report-fields dt {
+  font-weight: 800;
+  color: var(--color-accent-deep);
+}
+
+.report-fields dd {
+  margin: 0 0 0 0;
+}
+
+.report-evidence {
+  margin: 0;
+  padding-left: 1.3rem;
+}
+
+.report-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.report-limit {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}
+
+.report-confirm-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
