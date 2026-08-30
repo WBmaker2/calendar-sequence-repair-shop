@@ -6,6 +6,12 @@ export interface UpdateHistoryEntry {
 
 export const UPDATE_HISTORY: readonly UpdateHistoryEntry[] = [
   {
+    date: "2026-08-30",
+    title: "달력 작업대 전체 리디자인",
+    description:
+      "달력 학습 흐름이 한눈에 보이도록 작업대 구조와 색·간격·포커스 이동을 정리하고, 작은 화면에서도 핵심 행동을 먼저 만날 수 있게 개선했어요.",
+  },
+  {
     date: "2026-08-28",
     title: "학습 앱 구현 완료 (로컬 검증 통과)",
     description:

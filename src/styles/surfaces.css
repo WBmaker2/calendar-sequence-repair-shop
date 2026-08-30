@@ -1,0 +1,183 @@
+/* 대화상자·결과 기록처럼 한 화면의 표면을 구성하는 컴포넌트 */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: block;
+  overflow-y: auto;
+  padding: var(--space-5);
+  background: rgba(23, 32, 51, 0.58);
+}
+
+.modal-panel {
+  max-width: 38rem;
+  margin: 7vh auto 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: 0 24px 60px rgba(23, 32, 51, 0.28);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+}
+
+.modal-close-button {
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  background: var(--color-surface);
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: var(--space-4) var(--space-5) var(--space-5);
+}
+
+.update-history-intro {
+  margin-top: 0;
+  color: var(--color-ink-muted);
+}
+
+.update-history-list {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.update-history-entry-title {
+  margin: var(--space-3) 0 0;
+  color: var(--color-primary-deep);
+  font-weight: 800;
+}
+
+.update-history-entry-body {
+  margin: var(--space-1) 0 0;
+}
+
+/* 결과 기록 */
+
+.report {
+  display: grid;
+  gap: var(--space-5);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.report-header {
+  display: grid;
+  gap: var(--space-1);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.report-header h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+}
+
+.report-note,
+.report-limit {
+  margin: 0;
+  color: var(--color-ink-muted);
+}
+
+.report-records {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.report-record {
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  background: var(--color-background);
+}
+
+.report-record h3 {
+  margin: 0 0 var(--space-3);
+  color: var(--color-primary-deep);
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+}
+
+.report-fields {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.report-fields > div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.3fr) minmax(0, 1fr);
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid rgba(203, 213, 225, 0.78);
+}
+
+.report-fields dt {
+  color: var(--color-primary-deep);
+  font-weight: 900;
+}
+
+.report-fields dd {
+  margin: 0;
+}
+
+.report-evidence {
+  margin: 0;
+  padding-left: 1.3rem;
+}
+
+.report-controls,
+.report-confirm-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.report-limit {
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 40rem) {
+  .report-fields > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .report-fields dd {
+    margin-top: 0.15rem;
+  }
+}
+
+@media (max-width: 23.75rem) {
+  .modal-backdrop {
+    padding: var(--space-2);
+  }
+
+  .modal-panel {
+    margin-top: 1rem;
+  }
+}

@@ -33,8 +33,14 @@ export default function CalendarWorkbench({ state, dispatch }: CalendarWorkbench
   if (state.step === "WEEKDAY_STRIP") {
     return (
       <section className="workbench" aria-label="요일 띠 확인 단계">
-        <h2 className="workbench-heading">요일 띠 확인</h2>
-        <WeekdayStripStage onConfirm={() => dispatch({ type: "CONFIRM_WEEKDAY_STRIP" })} />
+        <header className="workbench-header">
+          <p className="workbench-mission-count">준비 단계 · 1 / 7</p>
+          <h2 className="workbench-heading">요일 띠 확인</h2>
+          <p className="workbench-instruction">달력을 읽기 전에 요일이 돌아오는 순서를 살펴봐요.</p>
+        </header>
+        <div className="workbench-stage">
+          <WeekdayStripStage onConfirm={() => dispatch({ type: "CONFIRM_WEEKDAY_STRIP" })} />
+        </div>
       </section>
     );
   }

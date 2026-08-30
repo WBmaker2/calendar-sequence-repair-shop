@@ -1,0 +1,245 @@
+/* 헤더 도구·진도·공통 행동 버튼 */
+
+.app-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: 0 0 var(--space-5);
+  border-bottom: 1px solid rgba(203, 213, 225, 0.9);
+}
+
+.app-brand {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.app-eyebrow,
+.entrance-kicker {
+  margin: 0;
+  color: var(--color-primary-deep);
+  font-size: var(--text-sm);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.app-title {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.app-title:focus {
+  outline: var(--focus-width) solid var(--color-focus);
+  outline-offset: 5px;
+  border-radius: var(--radius-button);
+}
+
+.app-header-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+.accessibility-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow-soft);
+}
+
+.toolbar-label {
+  margin: 0 0.35rem;
+  color: var(--color-ink-muted);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.toolbar-button,
+.update-history-button {
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+  padding: 0 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.toolbar-button:hover,
+.toolbar-button[aria-pressed="true"] {
+  border-color: var(--color-primary);
+  background: var(--color-accent-soft);
+  color: var(--color-primary-deep);
+}
+
+.update-history-button {
+  border-color: var(--color-primary);
+  background: var(--color-surface);
+  color: var(--color-primary-deep);
+  box-shadow: var(--shadow-soft);
+}
+
+.update-history-button:hover {
+  background: var(--color-accent-soft);
+}
+
+.progress-steps {
+  margin: var(--space-5) 0 var(--space-6);
+}
+
+.progress-steps ol {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.progress-steps li {
+  display: flex;
+  min-width: 0;
+  min-height: var(--touch-target);
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.6rem;
+  border-top: 3px solid var(--color-border);
+  color: var(--color-ink-muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.progress-steps li.is-current {
+  border-color: var(--color-primary);
+  color: var(--color-primary-deep);
+}
+
+.progress-steps li.is-done {
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.progress-index {
+  display: inline-flex;
+  flex: 0 0 1.65rem;
+  width: 1.65rem;
+  height: 1.65rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-ink-muted);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.is-current .progress-index {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.is-done .progress-index {
+  border-color: var(--color-success);
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.progress-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.action-button {
+  display: inline-flex;
+  min-width: 3.5rem;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.75rem 1.25rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius-button);
+  font-family: inherit;
+  font-size: var(--text-lg);
+  font-weight: 900;
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease;
+}
+
+.action-button:active:not(:disabled) {
+  transform: translateY(2px);
+}
+
+.action-button:disabled {
+  opacity: 0.48;
+}
+
+.action-button--primary {
+  background: var(--color-cta);
+  color: var(--color-on-cta);
+  box-shadow: var(--shadow-raised);
+}
+
+.action-button--primary:hover:not(:disabled) {
+  background: #c2410c;
+}
+
+.action-button--secondary {
+  border-color: var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-soft);
+}
+
+.action-button--secondary:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary-deep);
+}
+
+.action-button--ghost {
+  min-height: var(--touch-target);
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  color: var(--color-primary-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+@media (max-width: 40rem) {
+  .app-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .app-header-tools {
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  .accessibility-toolbar {
+    flex: 1 1 100%;
+  }
+
+  .update-history-button {
+    flex: 1 1 100%;
+  }
+}

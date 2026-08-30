@@ -43,7 +43,7 @@ export default function WeekdayStripStage({ onConfirm }: WeekdayStripStageProps)
           일요일부터 차례대로 눌러 주세요.
         </p>
       ) : null}
-      <ActionButton variant="primary" disabled={!done} onClick={onConfirm}>
+      <ActionButton variant="primary" pulse disabled={!done} onClick={onConfirm}>
         요일 띠 확인했어요
       </ActionButton>
     </div>

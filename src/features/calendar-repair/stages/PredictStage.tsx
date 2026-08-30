@@ -88,7 +88,7 @@ export default function PredictStage({ mission, onSubmit }: PredictStageProps) {
         </p>
       ) : null}
 
-      <ActionButton variant="primary" disabled={!canSubmit} onClick={handleSubmit}>
+      <ActionButton variant="primary" pulse disabled={!canSubmit} onClick={handleSubmit}>
         예상 완료하기
       </ActionButton>
     </div>

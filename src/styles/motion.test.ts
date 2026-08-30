@@ -38,20 +38,22 @@ describe("모션 CSS와 축소 모션 대체", () => {
   });
 });
 
-describe("gi-pulse는 두 필수 행동에만 사용된다", () => {
-  it("필수 행동 버튼(달력 칸 확인·관계 완성)만 pulse를 켠다", () => {
-    expect(readSource(STAGE_DIR, "SelectStage.tsx")).toContain("달력 칸 확인");
-    for (const file of ["RelateStage.tsx", "WeekStage.tsx", "BoundaryStage.tsx"]) {
-      const source = readSource(STAGE_DIR, file);
-      expect(source).toContain("관계 완성");
-      expect(source).toContain("pulse");
+describe("gi-pulse는 단계의 필수 완료 행동에 사용된다", () => {
+  it("각 학습 단계의 완료 버튼에 pulse를 켠다", () => {
+    for (const file of [
+      "WeekdayStripStage.tsx",
+      "PredictStage.tsx",
+      "SelectStage.tsx",
+      "RelateStage.tsx",
+      "WeekStage.tsx",
+      "BoundaryStage.tsx",
+    ]) {
+      expect(readSource(STAGE_DIR, file)).toContain("pulse");
     }
   });
 
   it("나머지 화면은 pulse를 쓰지 않는다", () => {
     for (const [directory, file] of [
-      [STAGE_DIR, "WeekdayStripStage.tsx"],
-      [STAGE_DIR, "PredictStage.tsx"],
       [REPORT_DIR, "LearningReport.tsx"],
       [join(dirname(fileURLToPath(import.meta.url)), "..", "features", "calendar-repair"), "EntranceScreen.tsx"],
     ] as const) {

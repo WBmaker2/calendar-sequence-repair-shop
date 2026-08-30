@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import ActionButton from "../../components/ActionButton";
 import { formatKoreanDate } from "../../domain/calendarMath";
 import type { CalendarEvaluation } from "../../domain/types";
@@ -17,10 +18,23 @@ export default function FeedbackPanel({
   onNext,
   nextLabel,
 }: FeedbackPanelProps) {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const title = titleRef.current;
+    if (!title) return;
+    title.focus();
+    if (typeof title.scrollIntoView === "function") {
+      title.scrollIntoView({ block: "nearest", behavior: "auto" });
+    }
+  }, [evaluation]);
+
   if (evaluation.accepted) {
     return (
       <div className="feedback-panel is-success" role="status">
-        <p className="feedback-title">좋아요! 달력 근거를 찾았어요.</p>
+        <h3 ref={titleRef} tabIndex={-1} className="feedback-title">
+          좋아요! 달력 근거를 찾았어요.
+        </h3>
         <ul className="feedback-evidence">
           {evaluation.evidenceKeys.map((key) => (
             <li key={key}>{key}</li>
@@ -36,7 +50,9 @@ export default function FeedbackPanel({
   if (canRepair) {
     return (
       <div className="feedback-panel is-retry" role="status">
-        <p className="feedback-title">근거를 다시 확인해 볼까요?</p>
+        <h3 ref={titleRef} tabIndex={-1} className="feedback-title">
+          근거를 다시 확인해 볼까요?
+        </h3>
         <ul className="feedback-evidence">
           {evaluation.evidenceKeys.map((key) => (
             <li key={key}>{key}</li>
@@ -51,7 +67,9 @@ export default function FeedbackPanel({
 
   return (
     <div className="feedback-panel is-recorded" role="status">
-      <p className="feedback-title">수정 결과를 기록했어요.</p>
+      <h3 ref={titleRef} tabIndex={-1} className="feedback-title">
+        수정 결과를 기록했어요.
+      </h3>
       <ul className="feedback-evidence">
         {evaluation.evidenceKeys.map((key) => (
           <li key={key}>{key}</li>

@@ -75,6 +75,7 @@ describe("빈 칸 예측 단계 (calendar-gap-01)", () => {
     await user.click(screen.getByRole("button", { name: "목요일" }));
     await user.click(screen.getByRole("button", { name: "예상 완료하기" }));
     expect(screen.getByText(/좋아요/)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "좋아요! 달력 근거를 찾았어요." })).toHaveFocus();
     expect(screen.getByRole("button", { name: "다음으로" })).toBeEnabled();
     await user.click(screen.getByRole("button", { name: "다음으로" }));
     expect(screen.getByRole("heading", { name: "같은 월요일 찾기" })).toBeInTheDocument();

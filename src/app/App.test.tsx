@@ -11,6 +11,11 @@ describe("App 셸", () => {
   it("앱 제목과 입구를 렌더링한다", () => {
     render(<App />);
     expect(screen.getByRole("heading", { level: 1, name: "달력 순서 복원소" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "활동으로 건너뛰기" })).toHaveAttribute(
+      "href",
+      "#main-content",
+    );
+    expect(document.querySelector("#main-content")).toHaveAttribute("tabindex", "-1");
     expect(screen.getByRole("button", { name: "달력 복원 시작하기" })).toBeInTheDocument();
   });
 

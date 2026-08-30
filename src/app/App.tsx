@@ -9,7 +9,9 @@ import UpdateHistoryButton from "../components/UpdateHistoryButton";
 import AccessibilityToolbar from "../accessibility/AccessibilityToolbar";
 import ErrorBoundary from "./ErrorBoundary";
 import "../styles/tokens.css";
+import "../styles/components.css";
 import "../styles/app.css";
+import "../styles/surfaces.css";
 import "../styles/motion.css";
 
 const FLOW_ORDER: readonly SessionStep[] = [
@@ -51,10 +53,16 @@ export default function App() {
   return (
     <ErrorBoundary onRestart={() => dispatch({ type: "RESTART_CONFIRMED" })}>
       <div className="app-shell">
+        <a className="skip-link" href="#main-content">
+          활동으로 건너뛰기
+        </a>
         <header className="app-header">
-          <h1 ref={mainHeadingRef} tabIndex={-1} className="app-title">
-            달력 순서 복원소
-          </h1>
+          <div className="app-brand">
+            <p className="app-eyebrow">2026년 9월 · 탐구형 달력 학습</p>
+            <h1 ref={mainHeadingRef} tabIndex={-1} className="app-title">
+              달력 순서 복원소
+            </h1>
+          </div>
           <div className="app-header-tools">
             <AccessibilityToolbar />
             <UpdateHistoryButton />
@@ -63,7 +71,9 @@ export default function App() {
 
         {progressIndex >= 0 ? <ProgressSteps currentIndex={progressIndex} /> : null}
 
-        <main className="app-main">{renderStep()}</main>
+        <main id="main-content" tabIndex={-1} className="app-main">
+          {renderStep()}
+        </main>
 
         <footer className="app-footer">
           <p>2026년 9월 실제 달력으로 연습해요 · 응답은 저장·전송되지 않아요</p>

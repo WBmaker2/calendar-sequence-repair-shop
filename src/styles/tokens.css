@@ -1,35 +1,58 @@
 :root {
-  --color-paper: #fff7ea;
-  --color-paper-raised: #fffdf7;
-  --color-paper-deep: #fdf0d9;
-  --color-ink: #2b2118;
-  --color-ink-soft: #5c4f42;
-  --color-accent: #2f7d5d;
-  --color-accent-deep: #226047;
-  --color-accent-soft: #d8ecdf;
-  --color-highlight: #ffd66b;
-  --color-highlight-deep: #f0b429;
-  --color-danger: #b3402f;
-  --color-danger-soft: #f7ddd6;
+  /* UI UX Pro Max 기반: 절제된 종이 작업대(라이트 모드) */
+  --color-background: #f2f5fb;
+  --color-surface: #ffffff;
+  --color-surface-muted: #e8edf7;
+  --color-ink: #172033;
+  --color-ink-muted: #4b5a70;
+  --color-primary: #4f46e5;
+  --color-primary-deep: #3730a3;
+  --color-on-primary: #ffffff;
+  --color-cta: #ea580c;
+  --color-on-cta: #0f172a;
+  --color-success: #0f766e;
+  --color-danger: #b42318;
+  --color-warning: #a16207;
   --color-focus: #1d4ed8;
-  --color-line: #e3d5bd;
-  --color-cell-blank: #f6ecd9;
+  --color-border: #cbd5e1;
+  --color-calendar-anchor: #fff0c2;
+  --color-calendar-missing: #fff6d8;
+  --color-success-soft: #dff6f0;
+  --color-danger-soft: #fee4e2;
+  --color-warning-soft: #fff3d6;
 
-  --radius-card: 18px;
-  --radius-button: 14px;
+  /* 기존 학습 컴포넌트가 공유하는 의미 이름 */
+  --color-paper: var(--color-background);
+  --color-paper-raised: var(--color-surface);
+  --color-paper-deep: var(--color-surface-muted);
+  --color-ink-soft: var(--color-ink-muted);
+  --color-accent: var(--color-primary);
+  --color-accent-deep: var(--color-primary-deep);
+  --color-accent-soft: #e5e7ff;
+  --color-highlight: var(--color-calendar-anchor);
+  --color-highlight-deep: #d97706;
+  --color-line: var(--color-border);
+  --color-cell-blank: var(--color-calendar-missing);
+
+  --radius-card: 24px;
+  --radius-panel: 16px;
+  --radius-button: 12px;
   --radius-cell: 12px;
-  --shadow-card: 0 2px 0 rgba(43, 33, 24, 0.1);
-  --shadow-raised: 0 3px 0 rgba(43, 33, 24, 0.14);
+  --shadow-card: 0 16px 40px rgba(23, 32, 51, 0.08);
+  --shadow-raised: 0 8px 18px rgba(23, 32, 51, 0.12);
+  --shadow-soft: 0 2px 0 rgba(23, 32, 51, 0.05);
 
+  --font-heading:
+    "Arial Rounded MT Bold", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
   --font-body:
     "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui,
     -apple-system, sans-serif;
 
-  --text-sm: 0.95rem;
+  --text-sm: 0.9375rem;
   --text-md: 1.0625rem;
   --text-lg: 1.25rem;
   --text-xl: 1.5rem;
-  --text-hero: clamp(1.75rem, 3.5vw, 2.25rem);
+  --text-hero: clamp(2rem, 4.5vw, 3.25rem);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -37,6 +60,7 @@
   --space-4: 1rem;
   --space-5: 1.5rem;
   --space-6: 2rem;
+  --space-7: 3rem;
 
   --touch-target: 44px;
   --focus-width: 3px;
