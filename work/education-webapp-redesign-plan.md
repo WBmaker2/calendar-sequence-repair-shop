@@ -186,6 +186,8 @@ node /Users/kimhongnyeon/.codex/skills/impeccable/scripts/detect.mjs --json <cha
 
 디자인 시스템과 코드 리디자인이 완료되었다. 이 문서와 `work/education-webapp-redesign-audit.md`, `design-system/MASTER.md`를 구현·검증 근거로 보존한다. 커밋·푸시·배포·HVC 등록은 별도 출시 승인 전까지 하지 않는다.
 
+2026-08-30에 사용자가 커밋·푸시·배포를 별도로 승인하여 `main`에 반영하고 GitHub Pages 공개 URL을 확인했다. HVC 등록은 실행하지 않았다.
+
 ## 11. 구현 완료 기록
 
 - `App.tsx`: skip link와 `main#main-content`를 추가하고 헤더/입구 구조를 정리했다.

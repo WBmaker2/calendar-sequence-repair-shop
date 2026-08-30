@@ -2,7 +2,7 @@
 
 - 보고일: 2026-08-30 (KST)
 - 대상: `/Volumes/ External Drive 256G/Dev2/codex/calendar-sequence-repair-shop`
-- 결과: **구현 완료 — 로컬 검증 통과; 외부 출시와 브라우저 시각 검증은 보류**
+- 결과: **구현·커밋·푸시·GitHub Pages 배포 완료; 브라우저 시각 검증은 환경 제한으로 보류**
 
 이 문서의 앞부분은 `$ui-ux-pro-max`가 아직 런타임에 없던 초기 보류 상태를 보존한 기록이다. 사용자가 Skill 문서와 경로를 제공한 뒤 아래 후속 실행에서 설계·코드 구현을 재개했다.
 
@@ -88,6 +88,19 @@
 - Impeccable detector: 최종 실행 결과 `[]`
 - 브라우저: 별도 4188 포트의 Playwright CLI를 세 차례 시도했으나 npm 캐시 및 Playwright 데몬 캐시의 `EPERM` 권한 오류로 실행하지 못했다. 기존 4173·4174·4175 포트의 다른 프로세스는 종료하지 않았다.
 - E2E: 기존 설정은 4173 공용 포트 충돌로 이전부터 준비 timeout 상태이며, 실제 브라우저 실행 증거로 보고하지 않는다.
-- 커밋·푸시·배포·HVC 등록: 사용자 요청 범위가 아니므로 실행하지 않았다.
+- 커밋·푸시·GitHub Pages 배포: 2026-08-30 사용자 요청으로 완료했다. HVC 등록은 별도 실행하지 않았다.
 
 다음 출시 전 게이트는 권한이 정리된 브라우저 세션에서 `page.goto('./')` 기반 실제 학습자 경로, 320/375/768/1280px, 200% 확대, 콘솔·가로 넘침·reduced motion을 확인하는 것이다. VoiceOver는 프로젝트 규칙에 따라 제외한다.
+
+## 공개 배포 기록 — 2026-08-30
+
+- 커밋: `7f5bfd2 feat: redesign calendar learning workbench`
+- 커밋: `24130c7 docs: record redesign plan and validation`
+- 원격: `main`에 푸시 완료 (`origin/main`과 동기화)
+- CI: [GitHub Actions 실행 33293756860](https://github.com/WBmaker2/calendar-sequence-repair-shop/actions/runs/33293756860) 성공
+- Pages: [GitHub Pages 배포 실행 33293756843](https://github.com/WBmaker2/calendar-sequence-repair-shop/actions/runs/33293756843) 성공
+- 공개 앱: [달력 순서 복원소](https://wbmaker2.github.io/calendar-sequence-repair-shop/)
+- 공개 확인: 앱 HTML HTTP 200, 제목 `달력 순서 복원소`, 참조 CSS/JS 자산 각각 HTTP 200
+- Pages 배포 경고: GitHub Actions가 Node.js 20 대상 액션을 Node.js 24로 강제 실행한다는 알림만 있었고, 빌드·배포 결과에는 영향이 없었다.
+
+이 기록을 포함한 문서 커밋도 같은 `main` 배포 흐름으로 CI와 Pages를 다시 확인한다.
