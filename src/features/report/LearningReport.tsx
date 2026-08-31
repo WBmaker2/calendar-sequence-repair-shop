@@ -38,7 +38,7 @@ export default function LearningReport({ state, dispatch }: LearningReportProps)
     <section className="report" aria-labelledby="report-heading">
       <header className="report-header">
         <h2 id="report-heading">오늘 복원한 달력 기록</h2>
-        <p className="report-note">새로고침하면 이 기록이 모두 사라져요. 지켜 보고 싶으면 인쇄해요.</p>
+        <p className="report-note">새로고침하면 이 기록이 모두 사라져요. 남겨 두고 싶으면 인쇄해요.</p>
       </header>
 
       <ol className="report-records" aria-label="미션별 달력 기록">
@@ -101,7 +101,7 @@ export default function LearningReport({ state, dispatch }: LearningReportProps)
       </div>
 
       <p className="report-limit">
-        이 앱은 2026년 9월 연습 달력을 다루는 교육 모형이며 실제 세계 전체를 보장하지 않아요.
+        이 기록은 2026년 9월 연습 달력으로 만든 교육 모형이에요. 다른 달력의 날짜는 직접 확인해 보세요.
       </p>
 
       <ModalDialog open={confirmOpen} title="처음부터 다시 할까요?" onClose={() => setConfirmOpen(false)}>

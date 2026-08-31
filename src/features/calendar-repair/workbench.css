@@ -380,6 +380,7 @@
   font-family: var(--font-heading);
   font-size: var(--text-lg);
   font-weight: 900;
+  scroll-margin-top: var(--space-4);
 }
 
 .feedback-title:focus {

@@ -6,6 +6,12 @@ export interface UpdateHistoryEntry {
 
 export const UPDATE_HISTORY: readonly UpdateHistoryEntry[] = [
   {
+    date: "2026-08-31",
+    title: "모바일 학습 흐름 점검",
+    description:
+      "단계가 바뀌면 현재 활동으로 바로 이동하고, 오답 뒤에는 새 답을 바로 고를 수 있도록 포커스와 화면 위치를 다듬었어요.",
+  },
+  {
     date: "2026-08-30",
     title: "달력 작업대 전체 리디자인",
     description:

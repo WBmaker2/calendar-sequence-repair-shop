@@ -263,6 +263,7 @@ button:disabled {
 
   .entrance-hero {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
   }
 
   .entrance-illustration {
@@ -294,6 +295,10 @@ button:disabled {
 
   .progress-steps ol {
     grid-template-columns: 1fr;
+  }
+
+  .entrance-illustration {
+    width: min(100%, 14rem);
   }
 
 }

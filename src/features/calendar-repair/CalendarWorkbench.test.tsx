@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import CalendarWorkbench from "./CalendarWorkbench";
 import {
@@ -92,6 +92,9 @@ describe("빈 칸 예측 단계 (calendar-gap-01)", () => {
     expect(feedback).not.toHaveTextContent("9월 3일");
     await user.click(screen.getByRole("button", { name: "다시 고치기" }));
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole("button", { name: "1일" })).toHaveFocus();
+    });
     expect(screen.getByRole("button", { name: "4일" })).toHaveAttribute("aria-pressed", "false");
     await user.click(screen.getByRole("button", { name: "3일" }));
     await user.click(screen.getByRole("button", { name: "목요일" }));

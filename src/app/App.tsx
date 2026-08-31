@@ -26,15 +26,20 @@ const FLOW_ORDER: readonly SessionStep[] = [
 
 export default function App() {
   const [state, dispatch] = useReducer(sessionReducer, undefined, initialSessionState);
-  const mainHeadingRef = useRef<HTMLHeadingElement>(null);
+  const mainContentRef = useRef<HTMLElement>(null);
+  const previousStepRef = useRef<SessionStep | null>(null);
   const { step } = state;
 
   useEffect(() => {
-    const heading = mainHeadingRef.current;
-    if (!heading) return;
-    heading.focus();
-    if (typeof heading.scrollIntoView === "function") {
-      heading.scrollIntoView({ block: "start", behavior: "auto" });
+    const previousStep = previousStepRef.current;
+    previousStepRef.current = step;
+    if (previousStep === null || previousStep === step) return;
+
+    const main = mainContentRef.current;
+    if (!main) return;
+    main.focus({ preventScroll: true });
+    if (typeof main.scrollIntoView === "function") {
+      main.scrollIntoView({ block: "start", behavior: "auto" });
     }
   }, [step]);
 
@@ -59,9 +64,7 @@ export default function App() {
         <header className="app-header">
           <div className="app-brand">
             <p className="app-eyebrow">2026년 9월 · 탐구형 달력 학습</p>
-            <h1 ref={mainHeadingRef} tabIndex={-1} className="app-title">
-              달력 순서 복원소
-            </h1>
+            <h1 className="app-title">달력 순서 복원소</h1>
           </div>
           <div className="app-header-tools">
             <AccessibilityToolbar />
@@ -71,7 +74,7 @@ export default function App() {
 
         {progressIndex >= 0 ? <ProgressSteps currentIndex={progressIndex} /> : null}
 
-        <main id="main-content" tabIndex={-1} className="app-main">
+        <main ref={mainContentRef} id="main-content" tabIndex={-1} className="app-main">
           {renderStep()}
         </main>
 

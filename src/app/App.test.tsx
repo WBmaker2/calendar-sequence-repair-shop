@@ -19,12 +19,12 @@ describe("App 셸", () => {
     expect(screen.getByRole("button", { name: "달력 복원 시작하기" })).toBeInTheDocument();
   });
 
-  it("시작하면 큰 제목으로 초점이 옮겨지고 요일 띠 단계가 된다", async () => {
+  it("시작하면 현재 학습 영역으로 초점이 옮겨지고 요일 띠 단계가 된다", async () => {
     const user = userEvent.setup();
     render(<App />);
     await user.click(screen.getByRole("button", { name: "달력 복원 시작하기" }));
     await waitFor(() => {
-      expect(screen.getByRole("heading", { level: 1, name: "달력 순서 복원소" })).toHaveFocus();
+      expect(screen.getByRole("main")).toHaveFocus();
     });
     expect(screen.getByRole("heading", { name: "요일 띠 확인" })).toBeInTheDocument();
   });

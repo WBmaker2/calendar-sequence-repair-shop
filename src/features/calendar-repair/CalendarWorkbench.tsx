@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ActionButton from "../../components/ActionButton";
 import { MISSIONS } from "../../content/missions";
 import type { CalendarAnswer, CalendarMission } from "../../domain/types";
@@ -21,6 +21,7 @@ interface CalendarWorkbenchProps {
 export default function CalendarWorkbench({ state, dispatch }: CalendarWorkbenchProps) {
   const [retryNonce, setRetryNonce] = useState(0);
   const [repairing, setRepairing] = useState(false);
+  const stageRef = useRef<HTMLDivElement>(null);
 
   const missionIndex = state.missionIndex;
   const record = state.records[missionIndex];
@@ -29,6 +30,18 @@ export default function CalendarWorkbench({ state, dispatch }: CalendarWorkbench
   useEffect(() => {
     setRepairing(false);
   }, [responseCount]);
+
+  useEffect(() => {
+    if (retryNonce === 0) return;
+    const firstControl = stageRef.current?.querySelector<HTMLElement>(
+      "button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex=\"-1\"])",
+    );
+    if (!firstControl) return;
+    firstControl.focus({ preventScroll: true });
+    if (typeof firstControl.scrollIntoView === "function") {
+      firstControl.scrollIntoView({ block: "nearest", behavior: "auto" });
+    }
+  }, [retryNonce]);
 
   if (state.step === "WEEKDAY_STRIP") {
     return (
@@ -93,6 +106,7 @@ export default function CalendarWorkbench({ state, dispatch }: CalendarWorkbench
       </header>
 
       <div
+        ref={stageRef}
         key={retryNonce}
         className={record.completed ? "workbench-stage is-locked" : "workbench-stage"}
       >

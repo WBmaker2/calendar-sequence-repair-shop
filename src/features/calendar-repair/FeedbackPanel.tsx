@@ -25,7 +25,7 @@ export default function FeedbackPanel({
     if (!title) return;
     title.focus();
     if (typeof title.scrollIntoView === "function") {
-      title.scrollIntoView({ block: "nearest", behavior: "auto" });
+      title.scrollIntoView({ block: "start", behavior: "auto" });
     }
   }, [evaluation]);
 

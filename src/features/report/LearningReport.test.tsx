@@ -63,10 +63,10 @@ describe("LearningReport", () => {
     expect(screen.queryByText(/순위/)).not.toBeInTheDocument();
   });
 
-  it("새로고침 안내와 교육 모형 한계를 함께 보여 준다", () => {
+  it("새로고침 안내와 연습 범위를 함께 보여 준다", () => {
     render(<LearningReport state={completedReport()} dispatch={vi.fn()} />);
     expect(screen.getByText(/새로고침하면.*사라져요/)).toBeInTheDocument();
-    expect(screen.getByText(/교육 모형/)).toBeInTheDocument();
+    expect(screen.getByText(/교육 모형.*다른 달력의 날짜는 직접 확인/)).toBeInTheDocument();
   });
 
   it("인쇄 버튼은 인쇄 대화상자만 호출한다", async () => {
