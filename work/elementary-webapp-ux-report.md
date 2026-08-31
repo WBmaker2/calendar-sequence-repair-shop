@@ -4,13 +4,13 @@
 - 실행 모드: `full`
 - 대상: `/Volumes/ External Drive 256G/Dev2/codex/calendar-sequence-repair-shop`
 - 학습자 관점: 초등 1–2학년 민서, 초등 3–4학년 준호 가드레일
-- 최종 상태: **조건부 완료 — 소스 개선·검증 완료, 이번 패스에서는 커밋·푸시·배포하지 않음**
+- 최종 상태: **조건부 완료 — 소스 개선·검증·커밋·푸시·GitHub Pages 배포 완료**
 
 ## 결론
 
 모바일 학습 흐름에서 가장 큰 문제였던 단계 전환 초점·스크롤 위치를 `main#main-content` 기준으로 고쳤습니다. 오답 후에는 첫 입력으로 초점이 돌아오고, 피드백 제목을 기준으로 전체 피드백과 다음 행동이 함께 보이도록 조정했습니다. 320px 입구의 상단 문구와 시작 버튼도 온전히 보입니다.
 
-기준선 휴리스틱 점수는 78/100이었고, 최종 점수는 93/100입니다. 다만 strict E2E와 독립적인 200% 확대 시나리오를 실행하지 않았으므로 릴리스 게이트는 `conditional`입니다.
+기준선 휴리스틱 점수는 78/100이었고, 최종 점수는 93/100입니다. strict E2E와 독립적인 200% 확대 시나리오는 실행하지 않았으므로 릴리스 게이트는 `conditional`로 남겼습니다. 이후 사용자 요청으로 커밋 `51fc403`을 `main`에 푸시했고 GitHub Pages 배포도 성공했습니다.
 
 ## 적용한 개선
 
@@ -35,11 +35,13 @@ Codex In-app Browser에서 로컬 개발 서버 `http://127.0.0.1:4188/`를 기�
 | 시작 → 요일 띠 → 미션 1 | `activeElement=main#main-content`; 현재 제목과 달력·첫 선택지가 viewport에 보임 |
 | 미션 1 오답 → 다시 고치기 | 피드백 제목·재시도 CTA가 보이고, 재시도 뒤 첫 `1일` 버튼에 focus 복귀 |
 | 미션 1 정답 | 근거와 `다음으로` CTA가 함께 보임 |
-| 전체 경로 → 월 경계 | `9월 31일` 오류 문구와 `10월 1일 목요일` 정답, 결과 기록까지 완료 |
+| 전체 경로 → 월 경계 | `9월 31일` 오류 문구와 `10월 1일 목요일` 정답, 결과 기록까지 공개본에서 완료 |
 | 키보드 | 달력 칸 focus 후 `ArrowRight`로 다음 날짜 칸 이동 확인; Enter/Space 회귀는 단위·E2E 소스 계약으로 보강 |
 | reduced motion | `reduce-motion=true`, 핵심 `.gi-pulse`의 computed animation이 `none` |
 | 업데이트 내역 | 대화상자 열림, 최신 2026-08-31 내역 표시, 닫기 후 대화상자 제거 |
 | 런타임 상태 | 콘솔 error/warn 없음, 깨진 이미지 없음, 모든 확인 viewport에서 `scrollWidth <= clientWidth` |
+
+공개 검증은 [GitHub Pages 배포본](https://wbmaker2.github.io/calendar-sequence-repair-shop/)에서 375px viewport로 수행했다. 오답 후 첫 `1일` 버튼 focus 복귀, 전체 6개 미션 완료, 결과 제목·모형 한계 문장 표시, 콘솔 경고 없음과 깨진 이미지 0건을 확인했다.
 
 ## 정적 검증
 
@@ -64,12 +66,14 @@ Codex In-app Browser에서 로컬 개발 서버 `http://127.0.0.1:4188/`를 기�
 - strict `npm run test:e2e`: 이번 패스에서는 실행하지 않음.
 - 독립적인 200% 확대 브라우저 시나리오: 이번 패스에서는 실행하지 않음.
 - 실제 아동·교사 수업 관찰: 별도 수동 HVC가 필요함.
-- 현재 변경 사항을 공개 URL에 반영하려면 별도의 커밋·푸시·Pages 배포 단계가 필요함.
+- 커밋: `51fc403 fix: improve learner flow and mobile UX`
+- [CI 실행 33369454935](https://github.com/WBmaker2/calendar-sequence-repair-shop/actions/runs/33369454935): 성공
+- [Pages 실행 33369454906](https://github.com/WBmaker2/calendar-sequence-repair-shop/actions/runs/33369454906): build/deploy 성공
 
 ## 확인 링크
 
 - [로컬 개선본 HVC](http://127.0.0.1:4188/)
-- [현재 공개 배포본](https://wbmaker2.github.io/calendar-sequence-repair-shop/) — 이번 점검 변경 전 공개본
+- [최종 공개 배포본](https://wbmaker2.github.io/calendar-sequence-repair-shop/)
 - [상세 실행 계획](./elementary-webapp-ux-plan.md)
 - [상세 감사 장부](./elementary-webapp-ux-audit.md)
 - [학습자 언어 감사](./elementary-webapp-ux-language-audit.md)
